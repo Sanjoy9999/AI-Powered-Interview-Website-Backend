@@ -9,8 +9,18 @@ const sessionRoutes = require("./routes/session.Route");
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// CORS Configuration - Direct implementation
+const corsOptions = {
+  origin: [
+    'http://localhost:3000',
+    'https://interview-prep-ai-rust-nine.vercel.app',
+    'http://localhost:5173', // Vite default
+  ],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
