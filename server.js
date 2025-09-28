@@ -6,6 +6,7 @@ const connectDB = require("./config/db"); // Import from config/db.js
 const authRoutes = require("./routes/auth.Route");
 const questionRoutes = require("./routes/question.Route");
 const sessionRoutes = require("./routes/session.Route");
+const aiRoutes = require("./routes/ai.Route");
 
 const app = express();
 
@@ -31,6 +32,7 @@ connectDB();
 app.use("/api/auth", authRoutes);
 app.use("/api/questions", questionRoutes);
 app.use("/api/sessions", sessionRoutes);
+app.use("/api/ai", aiRoutes);
 
 app.get("/", (req, res) => {
   res.json({ message: "AI Interview Backend API is running!" });
